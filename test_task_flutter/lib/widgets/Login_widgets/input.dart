@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class AuthorizationTextField extends StatefulWidget {
   final label;
@@ -9,6 +10,7 @@ class AuthorizationTextField extends StatefulWidget {
   final controller;
   final iconData;
   final padding;
+  final String inputFormatter;
 
   AuthorizationTextField({
     this.iconData,
@@ -19,6 +21,7 @@ class AuthorizationTextField extends StatefulWidget {
     this.isPassword = false,
     this.textCapitalization = TextCapitalization.none,
     this.padding = EdgeInsets.zero,
+    required this.inputFormatter,
   });
 
   @override
@@ -61,6 +64,11 @@ class _AuthorizationTextFieldState extends State<AuthorizationTextField> {
                   )
                 : null,
           ),
+          inputFormatters: [
+            if (widget.inputFormatter != '')
+              FilteringTextInputFormatter.allow(
+                  RegExp('${widget.inputFormatter}')),
+          ],
           onChanged: widget.onChange,
         ),
       ),

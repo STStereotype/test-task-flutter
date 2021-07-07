@@ -1,9 +1,10 @@
+import 'package:test_task_flutter/Widgets/Login_widgets/input.dart';
+import 'package:test_task_flutter/Widgets/Login_widgets/my_buttin.dart';
 import 'package:test_task_flutter/validation/authorization.dart';
-import 'package:test_task_flutter/Widgets/input.dart';
-import 'package:test_task_flutter/Widgets/my_buttin.dart';
-import 'package:test_task_flutter/Widgets/text.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
+
+import 'package:test_task_flutter/widgets/common/text.dart';
 
 double width = 0;
 double height = 0;
@@ -107,6 +108,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
           label: 'NickName',
           controller: _nickNameController,
+          inputFormatter: '[a-zA-Z0-9\\_]',
         ),
         AuthorizationTextField(
           padding: EdgeInsets.only(
@@ -117,6 +119,7 @@ class _LoginPageState extends State<LoginPage> {
           label: 'Password',
           isPassword: true,
           controller: _passwordController,
+          inputFormatter: '',
         ),
         SizedBox(
           height: height * 0.0677,

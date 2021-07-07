@@ -18,7 +18,6 @@ class MyButton extends StatelessWidget {
     required this.password,
   }) : super(key: key);
 
-  @override
   _func() {
     if (password != '' && nickName != '')
       return func;
