@@ -1,8 +1,7 @@
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:test_task_flutter/Pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:test_task_flutter/Widgets/home%20page/buttom%20avigation%20bar%20item/my_apple.dart';
-import 'dart:ui' as ui;
-
 import 'package:test_task_flutter/Widgets/home%20page/buttom%20avigation%20bar%20item/my_news.dart';
 import 'package:test_task_flutter/Widgets/home%20page/buttom%20avigation%20bar%20item/my_notes.dart';
 import 'package:test_task_flutter/Widgets/home%20page/buttom%20avigation%20bar%20item/my_shells.dart';
@@ -84,7 +83,7 @@ class _HomePageState extends State<HomePage> {
             label: "News",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.mail),
+            icon: Icon(FontAwesomeIcons.appleAlt),
             label: "",
           ),
           BottomNavigationBarItem(
@@ -92,11 +91,11 @@ class _HomePageState extends State<HomePage> {
             label: "",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(FontAwesomeIcons.dumbbell),
             label: "",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(FontAwesomeIcons.map),
             label: "",
           )
         ],

@@ -1,6 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
-
 import 'package:http/http.dart' as http;
 import 'package:test_task_flutter/constants/strings.dart';
 import 'package:test_task_flutter/models/news_info.dart';
@@ -37,10 +35,8 @@ class API_Manager {
         }
       }
     } catch (Exception) {
-      var j = 1;
       return newsModel;
     }
-    var i = 1;
     return newsModel;
   }
 }

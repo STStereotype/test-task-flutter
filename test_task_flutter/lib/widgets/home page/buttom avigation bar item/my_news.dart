@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:test_task_flutter/Pages/login_page.dart';
 import 'package:test_task_flutter/models/news_info.dart';
 import 'package:test_task_flutter/services/api_manager.dart';
-import 'package:test_task_flutter/widgets/common/text.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MyNews extends StatefulWidget {
   MyNews({Key? key}) : super(key: key);
@@ -17,7 +16,6 @@ class _MyNewsState extends State<MyNews> {
   @override
   void initState() {
     _newsModel = API_Manager().getNews();
-    var i = 1;
     super.initState();
   }
 
@@ -76,10 +74,29 @@ class _MyNewsState extends State<MyNews> {
                               child: Container(
                                 margin: EdgeInsets.only(left: width * 0.175),
                                 width: width,
-                                height: 35.0,
+                                height: 45.0,
                                 alignment: Alignment.centerLeft,
                                 child: Text(
                                   'Firstname Seccondname',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                  ),
+                                ), //Заглушка для изображения
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment.topLeft,
+                              child: Container(
+                                margin: EdgeInsets.only(
+                                    top: 50,
+                                    left: width * 0.05,
+                                    bottom: 40,
+                                    right: width * 0.05),
+                                width: width,
+                                height: height * 0.22,
+                                alignment: Alignment.topLeft,
+                                child: Text(
+                                  post.caption != null ? '${post.caption}' : '',
                                   style: TextStyle(
                                     fontSize: 16,
                                   ),
@@ -91,19 +108,57 @@ class _MyNewsState extends State<MyNews> {
                               child: Container(
                                 margin: EdgeInsets.only(left: width * 0.05),
                                 width: width,
-                                height: 35.0,
+                                height: 45.0,
                                 alignment: Alignment.centerLeft,
-                                child: Icon(Icons.hearing_outlined),
+                                child: Icon(
+                                  FontAwesomeIcons.solidHeart,
+                                  color: Colors.red,
+                                ),
                               ),
                             ),
                             Align(
                               alignment: Alignment.bottomLeft,
                               child: Container(
-                                margin: EdgeInsets.only(left: width * 0.175),
+                                margin: EdgeInsets.only(
+                                  left: width * 0.125,
+                                ),
                                 width: width,
-                                height: 35.0,
+                                height: 45.0,
                                 alignment: Alignment.centerLeft,
-                                child: Icon(Icons.hearing_outlined),
+                                child: Text(
+                                  '49',
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment.bottomLeft,
+                              child: Container(
+                                margin: EdgeInsets.only(
+                                  left: width * 0.225,
+                                ),
+                                width: width,
+                                height: 45.0,
+                                alignment: Alignment.centerLeft,
+                                child: Icon(
+                                  Icons.chat_bubble_outline,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment.bottomLeft,
+                              child: Container(
+                                margin: EdgeInsets.only(
+                                  left: width * 0.3,
+                                ),
+                                width: width,
+                                height: 45.0,
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  '12',
+                                  style: TextStyle(color: Colors.grey),
+                                ),
                               ),
                             ),
                           ],
