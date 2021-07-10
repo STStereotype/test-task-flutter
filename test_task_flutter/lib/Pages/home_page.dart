@@ -7,6 +7,7 @@ import 'package:test_task_flutter/Widgets/home%20page/buttom%20avigation%20bar%2
 import 'package:test_task_flutter/Widgets/home%20page/buttom%20avigation%20bar%20item/my_notes.dart';
 import 'package:test_task_flutter/Widgets/home%20page/buttom%20avigation%20bar%20item/my_shells.dart';
 import 'package:test_task_flutter/Widgets/home%20page/buttom%20avigation%20bar%20item/my_users.dart';
+import 'package:test_task_flutter/widgets/common/text.dart';
 
 class BackgroundHomePage extends CustomPainter {
   @override
@@ -54,6 +55,25 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: MyText(
+          lable: 'News',
+          padding: EdgeInsets.only(
+            left: width * 0.14,
+            right: width * 0.045,
+          ),
+          alignment: Alignment.topLeft,
+          textStyle: TextStyle(
+            fontSize: 22,
+            fontFamily: 'Roboto',
+            color: Colors.black,
+          ),
+        ),
+        backgroundColor: Colors.white,
+        automaticallyImplyLeading: false,
+        bottomOpacity: 0.0,
+        elevation: 0.0,
+      ),
       body: this.getBody(),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,

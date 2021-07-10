@@ -31,9 +31,87 @@ class _MyNewsState extends State<MyNews> {
               itemBuilder: (context, index) {
                 var post = snapshot.data!.result.posts[index];
                 return Container(
-                  height: 100,
+                  height: height * 0.25,
                   child: Row(
-                    children: <Widget>[],
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(45),
+                              bottomRight: Radius.circular(45)),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.grey.shade700,
+                                offset: Offset(0.0, 0.0),
+                                blurRadius: 0.0,
+                                spreadRadius: 0.0),
+                          ],
+                        ),
+                        child: Stack(
+                          children: [
+                            Align(
+                              alignment: Alignment.topLeft,
+                              child: Container(
+                                width: 35.0,
+                                height: 35.0,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  shape: BoxShape.circle,
+                                  boxShadow: [
+                                    BoxShadow(
+                                        color: Colors.red,
+                                        offset: Offset(0.0, 0.0),
+                                        blurRadius: 0.0,
+                                        spreadRadius: 1.0),
+                                  ],
+                                ),
+                                alignment: Alignment.center,
+                                child: Text(''), //Заглушка для изображения
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment.topLeft,
+                              child: Container(
+                                margin: EdgeInsets.only(left: width * 0.175),
+                                width: width,
+                                height: 35.0,
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  'Firstname Seccondname',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                  ),
+                                ), //Заглушка для изображения
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment.bottomLeft,
+                              child: Container(
+                                margin: EdgeInsets.only(left: width * 0.05),
+                                width: width,
+                                height: 35.0,
+                                alignment: Alignment.centerLeft,
+                                child: Icon(Icons.hearing_outlined),
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment.bottomLeft,
+                              child: Container(
+                                margin: EdgeInsets.only(left: width * 0.175),
+                                width: width,
+                                height: 35.0,
+                                alignment: Alignment.centerLeft,
+                                child: Icon(Icons.hearing_outlined),
+                              ),
+                            ),
+                          ],
+                        ),
+                        height: height * 0.22,
+                        width: width * 0.9,
+                      ),
+                    ],
                   ),
                 );
               });
@@ -49,24 +127,28 @@ class _MyNewsState extends State<MyNews> {
       color: Colors.white,
       child: Stack(
         children: [
-          MyText(
-            lable: 'News',
-            padding: EdgeInsets.only(
-              top: height * 0.08,
-              left: width * 0.14,
-              right: width * 0.045,
-            ),
-            alignment: Alignment.topLeft,
-            textStyle: TextStyle(
-              fontSize: 22,
-              fontFamily: 'Roboto',
-              color: Colors.black,
-            ),
-          ),
           _news(),
           Container(),
         ],
       ),
     );
+  }
+}
+
+class CircleClipper extends CustomClipper<Path> {
+  @override
+  getClip(Size size) {
+    var path = Path();
+
+    path.addOval(new Rect.fromCircle(
+        center: new Offset(size.width / 2, size.height / 2),
+        radius: size.width * 0.45));
+
+    return Path();
+  }
+
+  @override
+  bool shouldReclip(CustomClipper oldClipper) {
+    return false;
   }
 }
